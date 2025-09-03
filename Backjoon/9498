@@ -6,7 +6,33 @@
 if문(조건문)을 통한 입력값 비교 후 결과값 출력
 
 <코드>
-https://www.acmicpc.net/submit/9498/98085738
+(https://www.acmicpc.net/submit/9498/98085738)
+
+#include<stdio.h>
+
+int main()
+{
+    int score;
+    scanf("%d", &score);
+    
+    if(100>=score && score>=90){
+        printf("A");
+    }
+    else if(90>score && score>=80)
+    {
+        printf("B");
+    }
+    else if(80>score && score>=70){
+        printf("C");
+    }
+    else if(70>score && score>=60){
+        printf("D");
+    }
+    else{
+        printf("F");
+    }
+    return 0;
+}
 
 <패드백>
 C언어의 기본적인 조건문 'if - else if - else' 구조로 문제를 처리했으며 상한선과 하한선을 제시한 직관적이고 효율적인 방법이다.
