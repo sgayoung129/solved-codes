@@ -6,7 +6,26 @@
 if문(조건문)을 통한 입력값 비교
 
 <코드>
-https://www.acmicpc.net/source/98084684
+(https://www.acmicpc.net/source/98084684)
+
+#include<stdio.h>
+
+int main()
+{
+    int A,B;
+    scanf("%d %d",&A,&B);
+    
+    if(A>B){
+        printf(">");
+    }
+    else if(A<B){
+        printf("<");
+    }
+    else{
+        printf("==");
+    }
+    return 0;
+}
 
 <패드백>
 C언어의 기본적인 조건문 'if - else if - else' 구조로 문제를 처리했으며 가장 직관적이고 효율적인 방법이다.
