@@ -1,0 +1,32 @@
+### [2525] 오븐 시계 (https://www.acmicpc.net/problem/2525)
+
+
+<접근법>
+[2884] 문제와 유사
+시간을 분 단위로 정리하여 계산 후 다시 시와 분 단위로 구분.
+B값의 범위를 고려해서 조건문이 아닌 다른 방식으로 처리.
+A값을 구할 때 %24를 활용해 24시를 넘어가는 것을 방지.
+
+<코드>
+(https://www.acmicpc.net/source/98227112)
+
+#include <stdio.h>
+
+int main() {
+
+    int A, B, C, total;
+    scanf("%d %d", &A, &B);
+    scanf("%d", &C);
+
+    total = A*60 + B;
+    total = total + C;
+
+    A = (total/60)%24;
+    B = total % 60;
+   
+    printf("%d %d", A, B);
+    
+    return 0;
+}
+<패드백>
+B>59인 경우, A==24인 경우로 조건문을 적으면 문제에서 제공한 범위를 벗어나므로 조건문이 아닌 나머지 연산자를 통해 자연스럽고 간결하게 진행.
