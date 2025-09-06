@@ -2,9 +2,34 @@
 
 
 <접근법>
-사용자 입력값(년도) 필요
-if문(조건문)을 통한 입력값 비교 후 결과값 출력
+입력값(H, M) 선언
+조건문을 통해 M값이 45보다 크고 작은 경우로 나누어 결과값 출력 불가(H=0이고 M<45인 경우 처리 불가)
+세 가지 경우를 만족하기 위해선 if문이 아닌 시간을 분단위로 통일 후 계산.
+if문은 total값이 음수가 되는 경우를 고려해서만 이용.
 
 <코드>
+(https://www.acmicpc.net/source/98220180)
+
+#include <stdio.h>
+
+int main() {
+
+    int H, M, total;
+    scanf ("%d %d", &H, &M);
+
+    total = H*60 + M;
+    total = total - 45;
+
+    if (total < 0){
+        total = total+ 24*60;
+    }
+
+    H = total / 60;
+    M = total % 60;
+
+    printf("%d %d", H, M);
+    return 0;
+}
 
 <패드백>
+해당 문제의 H값이 0인 경우, total값이 음수인 경우와 같이 단순히 코드를 해결하는 것이 아닌 예외 상황을 해결하는 것을 고려하여 코드를 작성하도록 한다.
