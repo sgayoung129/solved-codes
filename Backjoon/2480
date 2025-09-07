@@ -1,0 +1,43 @@
+### [2480] 주사위 세개 (https://www.acmicpc.net/problem/2480)
+
+
+<접근법>
+주사위값 입력(각 세 개)
+같은 눈이 나오는 경우(같은 눈 3개, 2개, 모두 다른 눈) 3가지를 조건문으로 나누어 상금 출력.
+주사위 눈이ㅣ 모두 다른 경우 큰 눈의 수를 조건문을 통해 구별해야함.
+
+<코드>
+(https://www.acmicpc.net/source/98256844)
+
+#include <stdio.h>
+
+int main() {
+
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+
+    if(a==b && b==c){
+        printf("%d", 10000 +a*1000);
+    }
+    else if(a==b){
+        printf("%d", 1000+a*100);}
+    else if(b==c){
+        printf("%d", 1000+b*100);}
+    else if(a==c){
+        printf("%d", 1000+a*100);}
+    else
+    {
+        int max = a;
+        if (b>max){max = b;}
+        if (c>max){max = c;}
+
+        printf("%d", max*100);
+    }
+    
+    return 0;
+}
+
+
+<피드백>
+문제가 복잡해 보여도 경우의 수를 나누어 접근하면 꽤나 순조롭게 문제를 해결할 수 있었다.
+또한 'if - else if' 구조를 통해 간결하게 코드를 작성하였다.
