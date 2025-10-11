@@ -1,0 +1,37 @@
+### 대소문자 바꿔서 출력하기 (https://school.programmers.co.kr/learn/courses/30/lessons/181949)
+
+<접근법>
+대문자는 소문자로, 소문자는 대문자로 변환 (tolower(), toupper() 사용)
+
+<코드>
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#define LEN_INPUT 21
+
+int main(void) {
+    char s1[LEN_INPUT];
+    scanf("%s", s1);
+    
+    int n;
+    n= strlen(s1);
+    
+    for(int i=0; i<n; i++)
+    {
+        if(islower(s1[i]))
+           {
+             s1[i] = toupper(s1[i]);
+           }
+        else s1[i] = tolower(s1[i]);
+    }
+
+    printf("%s\n", s1);
+    
+    return 0;
+}
+
+
+<피드백>
+ctype.h 헤더 파일에 포함된 islower(), toupper(), tolower() 함수를 사용하여 대소문자를 판별하고 변환하는 접근은 ASCII 코드 값을 직접 계산할 필요가 없어 코드의 가독성에 좋다.
+그러나 strlen()을 계산하지 않고 'for(int i=0; s1[i]; i++)'이라는 조건으로 문제를 간결히 해결할 수 있음.
