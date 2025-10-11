@@ -1,0 +1,36 @@
+### [11720] 숫자의 합 (https://www.acmicpc.net/problem/11720)
+
+
+<접근법>
+입력할 개수 스캔
+입력값 받아 각 저장 후 반복문 통해서 합 구하기
+공백 없이 입력받으므로 배열이 아닌 문자열 이용.(정수 연산이 아닌 문자열 문)
+
+<코드>
+(https://www.acmicpc.net/source/99328509)
+
+#include <stdio.h>
+
+int main() {
+   
+    int n;
+    int sum =0;
+
+    scanf("%d", &n);
+
+    char num_str[101];
+    scanf("%s", num_str);
+
+    for(int i=0; i<n; i++)
+        {
+
+            sum = sum + (num_str[i]-'0');
+        }
+
+    printf("%d", sum);
+    
+    return 0;
+}
+
+<피드백>
+공백 없이 연속된 숫자를 처리하기 위해 문자열(char num_str[101])을 사용한 것은 이 문제의 가장 정석적이고 효율적인 해결 방법이다.
