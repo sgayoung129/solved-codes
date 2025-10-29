@@ -1,0 +1,43 @@
+### [1427] 소트인사이드 (https://www.acmicpc.net/problem/1427)
+
+
+<접근법>
+버블정렬 사용 (내림차순 정렬)
+입력 개수를 입력 받거나 정해진 것이 아니므로 배열이 아닌 문자열 사용
+문자열을 사용하여 strlen()함수를 통해 길이 구하기
+
+<코드>
+(https://www.acmicpc.net/source/99805456)
+
+#include <stdio.h>
+#include <string.h>
+
+void bubble_sort (char a[], int n)
+{
+    for(int i=0; i<n-1; i++)
+        {
+            for(int j=0; j<n-1-i; j++)
+                    if(a[j] < a[j+1])  //내림차순
+                    {
+                        char temp = a[j];
+                        a[j] = a[j+1];
+                        a[j+1] = temp;
+                    }
+        }
+}
+
+int main() {
+    char num[12];
+    scanf("%s", num);
+
+    int len = strlen(num);
+    
+    bubble_sort(num, len);
+
+    printf("%s", num);
+    
+    return 0;
+}
+
+<피드백>
+버블 정렬을 통해 코드를 잘 구현하였으나 가독성이나 효율성을 위해 qsort()를 사용하여 퀵정렬을 통해 구현하는 것도 좋은 방법으로 보임.
