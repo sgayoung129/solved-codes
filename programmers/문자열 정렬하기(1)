@@ -1,0 +1,47 @@
+### 문자열 정렬하기 (1) (https://school.programmers.co.kr/learn/courses/30/lessons/120850)
+
+<접근법>
+strlen()으로 입력 받은 문자열의 길이를 알아내고 길이만큼 for문을 반복
+문자열에서 숫자만을 추출 (아스키 코드 활용)
+숫자만을 추출하여 배열에 저장하여 정렬.
+
+<코드>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void bubble_sort (int a[], int n)
+{    for(int i=0; i<n-1; i++)
+        {
+            for(int j=0; j<n-1-i; j++)
+                    if(a[j] > a[j+1])
+                    {
+                        int temp = a[j];
+                        a[j] = a[j+1];
+                        a[j+1] = temp;
+                    }
+        }
+}
+int* solution(const char* str) {
+    
+    int len = strlen(str);
+    int* answer = (int*)malloc(len+1);
+    int arr[100] = {0}; //입력 받은 문자열에서 숫자만 추출하여 담을 배열
+    int n = 0;
+    
+    for(int i=0; i<len; i++)
+    {        
+        if(str[i] >= '0' && str[i] <= '9')
+        {
+            arr[n] = str[i] - '0';
+            n++;
+        }
+    }
+    bubble_sort(arr, n);
+    answer = arr;
+    
+    return answer;
+}
+
+<피드백>
